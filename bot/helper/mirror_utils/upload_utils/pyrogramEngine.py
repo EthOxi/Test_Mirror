@@ -1,6 +1,8 @@
 from logging import getLogger, ERROR
 from os import remove as osremove, walk, path as ospath, rename as osrename
 from time import time, sleep
+
+from telegram import VideoNote
 from pyrogram.errors import FloodWait, RPCError
 from PIL import Image
 from threading import RLock
@@ -18,7 +20,7 @@ VIDEO_SUFFIXES = ("MKV", "MP4", "MOV", "WMV", "3GP", "MPG", "WEBM", "AVI", "FLV"
 AUDIO_SUFFIXES = ("MP3", "M4A", "M4B", "FLAC", "WAV", "AIF", "OGG", "AAC", "DTS", "MID", "AMR", "MKA")
 IMAGE_SUFFIXES = ("JPG", "JPX", "PNG", "WEBP", "CR2", "TIF", "BMP", "JXR", "PSD", "ICO", "HEIC", "JPEG")
 file_new = " "
-
+SUFFIXES_ALL = ("mkv", "mp4", "mov", "wmv", "3gp", "mpg", "webm", "avi", "flv", "m4v", "gif", "mp3", "m4a", "m4b", "flac", "wav", "aif", "ogg", "aac", "dts", "mid", "amr", "mka", "jpg", "jpx", "png", "webp", "cr2", "tif", "bmp", "jxr", "psd", "ico", "heic", "jpeg")
 class TgUploader:
 
     def __init__(self, name=None, listener=None):
@@ -67,9 +69,9 @@ class TgUploader:
         self.__listener.onUploadComplete(None, size, self.__msgs_dict, self.__total_files, self.__corrupted, self.name)
 
     def __upload_file(self, up_path, file_, dirpath):
-        for suffix in VIDEO_SUFFIXES:
-            if file_.upper().endswith(suffix):
-                file_new = file_.upper().removesuffix("." + suffix)
+        for suffix in SUFFIXES_ALL:
+            if file_.endswith(suffix):
+                file_new = file_.removesuffix("." + suffix)
         if CUSTOM_FILENAME is not None:
             cap_mono = f"{CUSTOM_FILENAME} <b>{file_new}</b>"
             file_ = f"{CUSTOM_FILENAME} {file_}"
