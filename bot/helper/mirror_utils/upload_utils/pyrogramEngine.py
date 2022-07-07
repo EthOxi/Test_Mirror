@@ -79,7 +79,7 @@ class TgUploader:
             osrename(up_path, new_path)
             up_path = new_path
         else:
-            cap_mono = f"<b>{file_new}</b>"
+            cap_mono = f"<b>{file_new}</b> \n\n ⚡️⚡️Join Fast⚡️⚡️ \n https://t.me/+vqH_78vH_y44NWE9"
         notMedia = False
         thumb = self.__thumb
         self.__is_corrupted = False
