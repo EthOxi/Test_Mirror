@@ -73,7 +73,7 @@ class TgUploader:
             if file_.endswith(suffix):
                 file_new = file_.removesuffix("." + suffix)
             else:
-                file_new = file_
+                break
         if CUSTOM_FILENAME is not None:
             cap_mono = f"{CUSTOM_FILENAME} <b>{file_new} \n\n ⚡️⚡️Join Fast⚡️⚡️ \n https://t.me/+vqH_78vH_y44NWE9</b>"
             file_ = f"{CUSTOM_FILENAME} {file_}"
