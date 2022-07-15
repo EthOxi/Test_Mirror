@@ -224,7 +224,7 @@ class MirrorListener:
                     source_link = message_args[1]
                     if is_magnet(source_link):
                         link = telegraph.create_page(
-                        title='Helios-Mirror Source Link',
+                        title='BeaN-Mirror Source Link',
                         content=source_link,
                     )["path"]
                         buttons.buildbutton(f"🔗 Source Link", f"https://telegra.ph/{link}")
@@ -240,7 +240,7 @@ class MirrorListener:
                             source_link = reply_text.strip()
                             if is_magnet(source_link):
                                 link = telegraph.create_page(
-                                    title='Helios-Mirror Source Link',
+                                    title='BeaN-Mirror Source Link',
                                     content=source_link,
                                 )["path"]
                                 buttons.buildbutton(f"🔗 Source Link", f"https://telegra.ph/{link}")
@@ -279,7 +279,7 @@ class MirrorListener:
             msg += f'\n\n<b>cc: </b>{self.tag}'
             buttons = ButtonMaker()
             link = short_url(link)
-            buttons.buildbutton("☁️ Drive Link", link)
+            buttons.buildbutton("☁️ GDrive Link", link)
             LOGGER.info(f'Done Uploading {name}')
             if INDEX_URL is not None:
                 url_path = rutils.quote(f'{name}')
@@ -306,7 +306,7 @@ class MirrorListener:
                     mesg = message_args[1]
                     if is_magnet(mesg):
                         link = telegraph.create_page(
-                            title='Helios-Mirror Source Link',
+                            title='BeaN-Mirror Source Link',
                             content=mesg,
                         )["path"]
                         buttons.buildbutton(f"🔗 Source Link", f"https://telegra.ph/{link}")
