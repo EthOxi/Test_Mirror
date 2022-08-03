@@ -12,6 +12,7 @@ from bot import DOWNLOAD_DIR, AS_DOCUMENT, AS_DOC_USERS, AS_MEDIA_USERS, CUSTOM_
                  EXTENTION_FILTER, app, LEECH_LOG, BOT_PM
 from bot.helper.ext_utils.fs_utils import take_ss, get_media_info, get_video_resolution, get_path_size
 from bot.helper.ext_utils.bot_utils import get_readable_file_size
+from bot.caption import prefix_set, caption_set
 
 LOGGER = getLogger(__name__)
 getLogger("pyrogram").setLevel(ERROR)
