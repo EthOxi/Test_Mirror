@@ -2,7 +2,6 @@ from pyrogram import enums
 
 PRE_DICT = {}
 CAP_DICT = {}
-IMDB_TEMPLATE = {}
 
 async def prefix_set(client, message):
     '''  /setpre command '''
