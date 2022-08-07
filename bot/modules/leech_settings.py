@@ -10,6 +10,10 @@ from bot.helper.telegram_helper.filters import CustomFilters
 from bot.helper.telegram_helper.bot_commands import BotCommands
 from bot.helper.telegram_helper import button_build
 from bot.helper.ext_utils.db_handler import DbManger
+from pyrogram import enums
+
+PRE_DICT = {}
+CAP_DICT = {}
 
 
 def getleechinfo(from_user):
@@ -94,6 +98,31 @@ def setLeechType(update, context):
             query.message.reply_to_message.delete()
         except:
             pass
+
+async def caption_set(client, message):
+    '''  /setcap command '''
+
+    lk = await message.reply_text(
+        text="`Setting Up ...`",
+    )
+    user_id_ = message.from_user.id 
+    u_men = message.from_user.mention
+    cap_send = message.text.split(" ", maxsplit=1)
+    reply_to = message.reply_to_message
+    if len(cap_send) > 1:
+        txt = cap_send[1]
+    elif reply_to is not None:
+        txt = reply_to.text
+    else:
+        txt = ""
+    caption_ = txt
+    CAP_DICT[user_id_] = caption_
+    try:
+        txx = txt.split("#", maxsplit=1)
+        txt = txx[0]
+    except:
+        pass 
+    cap_text = await lk.edit_text(f"⚡️<i><b>Custom Caption Set Successfully</b></i> ⚡️ \n\n👤 <b>User :</b> {u_men}\n🆔 <b>User ID :</b> <code>{user_id_}</code>\n🗃 <b>Caption :</b>\n<code>{txt}</code>", parse_mode=enums.ParseMode.HTML)
 
 def setThumb(update, context):
     user_id = update.message.from_user.id
