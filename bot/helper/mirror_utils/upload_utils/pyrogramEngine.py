@@ -76,13 +76,13 @@ class TgUploader:
             else:
                 break
         if CUSTOM_FILENAME is not None:
-            cap_mono = f"{CUSTOM_FILENAME} <b>{file_new} \n\n ⚡️⚡️Join Fast⚡️⚡️ \n https://t.me/+vqH_78vH_y44NWE9</b>"
+            cap_mono = f"{CUSTOM_FILENAME} <b>{file_new} \n\n  🔥Join Fastest Growing Channel🔥 \n https://t.me/+zoNJaYoQi6E5MGZl</b>"
             file_ = f"{CUSTOM_FILENAME} {file_}"
             new_path = ospath.join(dirpath, file_)
             osrename(up_path, new_path)
             up_path = new_path
         else:
-            cap_mono = f"<b>{file_new}</b>{caption_set}"
+            cap_mono = f"<b>{file_new} \n\n  🔥Join Fastest Growing Channel🔥 \n https://t.me/+zoNJaYoQi6E5MGZl</b>"
         notMedia = False
         thumb = self.__thumb
         self.__is_corrupted = False
